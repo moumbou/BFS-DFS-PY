@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Container from "./Container";
+
+const { ipcRenderer } = window.require("electron");
 
 function App() {
+  const [search, setSearch] = React.useState([]);
+
+  ipcRenderer.on("recherche", (e, args) => {
+    if (args) setSearch(JSON.parse(args));
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Container search={search} setSearch={setSearch} />
     </div>
   );
 }

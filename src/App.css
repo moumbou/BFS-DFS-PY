@@ -1,38 +1,150 @@
-.App {
-  text-align: center;
+.heading {
+  font-size: .9rem;
+  padding: 10px 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5);
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
 }
 
-.App-logo {
-  height: 40vmin;
+.heading span {
+  font-size: .6rem;
+  font-weight: bolder;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input_section {
+  padding: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input_section h3 {
+  margin: 10px 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.input_section textarea {
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 5px;
+  border-color: #b1bac4;
+  background-color: #30363d;
+  padding: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: .7rem;
+}
+
+[data-component="submit_section"] {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: stretch;
+  gap: 10px;
+}
+
+[data-component="submit_section"] label {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  display: block;
+}
+
+[data-component="submit_section"] input {
+  width: 60px;
+  padding: 5px;
+  background-color: #30363d;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 5px;
+  border: solid 1px #b1bac4;
+}
+
+.button_radio {
   display: flex;
-  flex-direction: column;
+}
+
+.button_radio button {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: .7rem;
+  font-weight: 900;
+  border: solid 1px #30363d;
+  color: #30363d;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.button_radio button:hover {
+  opacity: .8;
+}
+
+.button_radio button[data-info="selected"] {
+  opacity: .8;
+  pointer-events: none;
+}
+
+[data-component="submit"] {
+  display: flex;
+  justify-content: flex-end;
+}
+
+[data-component="submit"] button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: transparent;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: .8rem;
+  color: #ffffff;
+  background-color: #2ea043;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  opacity: .9;
+}
+
+[data-component="submit"] button:hover {
+  opacity: 1;
+}
+
+[data-component="result"] {
+  border-top: solid 3px #ffffff;
+  margin-top: 20px;
+  background-color: #30363d;
+  padding: 20px 10px;
+  min-height: 100%;
+  overflow: auto;
+  display: flex;
+  gap: 30px;
+}
+
+[data-component="result"] p {
+  min-width: 50px;
+  min-height: 50px;
+  height: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #0d1117;
+  border-radius: 100%;
+  font-size: .9rem;
+  font-weight: bolder;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+[data-component="result"] p::before {
+  content: '-->';
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[data-component="result"] p:nth-of-type(1)::before {
+  content: '';
 }
